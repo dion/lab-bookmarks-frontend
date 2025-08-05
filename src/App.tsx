@@ -25,7 +25,7 @@ function App() {
       title: 'My Site',
       url: 'https://mysite.com',
     };
-    
+
     const result = await createBookmark(newBookmark);
     setBookmarks([...bookmarks, result]);
   };
@@ -58,11 +58,13 @@ function App() {
           </p> */}
           <div>
             <h1>Bookmarks</h1>
-            <ul>
-              {bookmarks.map((b) => (
-                <li key={b.id}>{b.title} - {b.url}</li>
-              ))}
-            </ul>
+            {bookmarks.length > 0 && (
+              <ul>
+                {bookmarks.map((b) => (
+                  <li key={b.id}>{b.title} - {b.url}</li>
+                ))}
+              </ul>
+            )}
             <button onClick={handleAdd}>Add Bookmark</button>
           </div>
         </main>
